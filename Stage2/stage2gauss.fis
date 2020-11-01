@@ -1,0 +1,69 @@
+[System]
+Name='stage2gauss'
+Type='mamdani'
+Version=2.0
+NumInputs=5
+NumOutputs=2
+NumRules=7
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='x1'
+Range=[0 100]
+NumMFs=1
+MF1='Опасность_слева':'gaussmf',[42.47 -8.882e-16]
+
+[Input2]
+Name='x2'
+Range=[0 100]
+NumMFs=1
+MF1='Опасность_прямо':'gaussmf',[42.47 0]
+
+[Input3]
+Name='x3'
+Range=[0 100]
+NumMFs=1
+MF1='Опасность_справа':'gaussmf',[42.47 -8.882e-16]
+
+[Input4]
+Name='x4'
+Range=[-100 100]
+NumMFs=2
+MF1='Цель_слева':'gauss2mf',[54.36 -136 20.38 -24]
+MF2='Цель_справа':'gauss2mf',[20.38 24 54.36 136]
+
+[Input5]
+Name='x5'
+Range=[0 100]
+NumMFs=2
+MF1='Цель_близко':'gauss2mf',[27.18 -18 13.59 4]
+MF2='Цель_далеко':'gauss2mf',[13.59 36 27.18 118]
+
+[Output1]
+Name='y1'
+Range=[-1 1]
+NumMFs=4
+MF1='Влево_приоритет1':'gaussmf',[0.008493 -0.81]
+MF2='Вправо_приоритет1':'gaussmf',[0.008493 0.81]
+MF3='Влево_приоритет2':'gauss2mf',[0.5436 -1.36 0.006795 -0.508]
+MF4='Вправо_приоритет2':'gauss2mf',[0.006795 0.508 0.5436 1.36]
+
+[Output2]
+Name='y2'
+Range=[-1 1]
+NumMFs=2
+MF1='Стоять':'gauss2mf',[0.003397 -0.091 0.003397 0.091]
+MF2='Ехать':'gauss2mf',[0.003397 0.909 0.5436 1.36]
+
+[Rules]
+0 0 0 1 0, 1 0 (1) : 1
+0 0 0 2 0, 2 0 (1) : 1
+0 0 0 0 2, 0 2 (1) : 1
+0 0 0 0 1, 0 1 (1) : 1
+1 0 0 0 0, 4 0 (1) : 1
+0 0 1 0 0, 3 0 (1) : 1
+0 1 0 0 0, 0 1 (1) : 1
