@@ -1,0 +1,74 @@
+[System]
+Name='ralf_lauren_girls'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=8
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='height'
+Range=[98.6 155]
+NumMFs=8
+MF1='5':'trimf',[98.6 111.94 116]
+MF2='6':'trimf',[98.6 118.7 123]
+MF3='6x':'trimf',[98.6 123.5 128]
+MF4='7':'trimf',[98.6 129.31 134]
+MF5='12':'trimf',[98.6 143.79 149]
+MF6='8':'trimf',[98.6 133.2 138]
+MF7='10':'trimf',[98.6 137 142]
+MF8='14':'trimf',[98.6 149.6 155]
+
+[Input2]
+Name='weight'
+Range=[17 45]
+NumMFs=8
+MF1='5':'trimf',[17 19.3 20]
+MF2='6':'trimf',[17 21.2 22]
+MF3='6x':'trimf',[17 22.2 23]
+MF4='7':'trimf',[17 24.1 25]
+MF5='8':'trimf',[17 27.02 28]
+MF6='10':'trimf',[17 31.85 37.64]
+MF7='12':'trimf',[17 37.64 39]
+MF8='14':'trimf',[17 43.43 45]
+
+[Input3]
+Name='waist'
+Range=[45.05 66]
+NumMFs=8
+MF1='5':'trimf',[45.05 51.15 53]
+MF2='6':'trimf',[45.05 53.08 55]
+MF3='6x':'trimf',[45.05 54.04 56]
+MF4='7':'trimf',[45.05 55.01 57]
+MF5='8':'trimf',[45.05 55.97 58]
+MF6='10':'trimf',[45.05 58.87 61]
+MF7='12':'trimf',[45.05 61.76 64]
+MF8='14':'trimf',[45.05 63.69 66]
+
+[Output1]
+Name='size'
+Range=[0 1]
+NumMFs=8
+MF1='5':'trimf',[-0.1429 -4.337e-18 0.1429]
+MF2='6':'trimf',[0 0.1429 0.2857]
+MF3='6x':'trimf',[0.1429 0.2857 0.4286]
+MF4='7':'trimf',[0.2857 0.4286 0.5714]
+MF5='8':'trimf',[0.4286 0.5714 0.7143]
+MF6='10':'trimf',[0.5714 0.7143 0.8571]
+MF7='12':'trimf',[0.7143 0.8571 1]
+MF8='14':'trimf',[0.8571 1 1.143]
+
+[Rules]
+1 1 1, 1 (1) : 1
+2 2 2, 2 (1) : 1
+3 3 3, 3 (1) : 1
+4 4 4, 4 (1) : 1
+6 5 5, 5 (1) : 1
+7 6 6, 6 (1) : 1
+5 7 7, 7 (1) : 1
+8 8 8, 8 (1) : 1
